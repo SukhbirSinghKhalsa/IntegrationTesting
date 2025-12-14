@@ -18,6 +18,6 @@ func TestTerraformHelloWorldExample(t *testing.T) {
 
 	terraform.InitAndApply(t, terraformOptions)
 
-	output := terraform.Output(t, terraformOptions, 'rg_ids = {"rg1" = "/subscriptions/acd9510d-7e29-433d-8504-d10d34dba654/resourceGroups/ssk-inc-sandbox-rg"}')
-	assert.Equal(t, 'rg_ids = {"rg1" = "/subscriptions/acd9510d-7e29-433d-8504-d10d34dba654/resourceGroups/ssk-inc-sandbox-rg"}', output)
+	output := terraform.Output(t, terraformOptions, "rg_ids")
+	assert.Equal(t, "rg_ids", output)
 }
