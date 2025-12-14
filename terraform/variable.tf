@@ -1,5 +1,5 @@
 variable "resource_group_reference" {
-  type = map(string)
+  type = map
   default = {
     rg1 = {
       resource_group_name = "ssk-inc-sandbox-rg"
