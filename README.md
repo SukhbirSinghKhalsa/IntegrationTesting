@@ -63,8 +63,41 @@ go version
 
 
 ---
+## Step 3: Install Azure CLI
+- Official Download Link from Microsoft [https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- Ubuntu based command 
+```bash
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release
 
-## Step 3: Clone the Repository
+sudo mkdir -p /etc/apt/keyrings
+curl -sLS https://packages.microsoft.com/keys/microsoft.asc |
+  gpg --dearmor | sudo tee /etc/apt/keyrings/microsoft.gpg > /dev/null
+sudo chmod go+r /etc/apt/keyrings/microsoft.gpg
+
+AZ_DIST=$(lsb_release -cs)
+echo "Types: deb
+URIs: https://packages.microsoft.com/repos/azure-cli/
+Suites: ${AZ_DIST}
+Components: main
+Architectures: $(dpkg --print-architecture)
+Signed-by: /etc/apt/keyrings/microsoft.gpg" | sudo tee /etc/apt/sources.list.d/azure-cli.sources
+
+sudo apt-get update
+sudo apt-get install azure-cli
+
+az version
+```
+
+- Log in with a service principal using client secret. Use --password=secret if the first
+    character of the password is '-'.       
+```bash
+az login --service-principal --username APP_ID --password CLIENT_SECRET --tenant TENANT_ID
+```
+---
+
+
+## Step 4: Clone the Repository
 
 ```bash
 cd /tmp
@@ -74,7 +107,7 @@ cd IntegrationTesting
 
 ---
 
-## Step 4: Configure Azure Credentials
+## Step 5: Configure Azure Credentials
 
 ```bash
 export ARM_SUBSCRIPTION_ID=""
@@ -84,7 +117,7 @@ export ARM_SUBSCRIPTION_ID=""
 
 ---
 
-## Step 5: Create Project Structure
+## Step 6: Create Project Structure
 
 ```bash
 mkdir integration_test
@@ -101,7 +134,7 @@ cd ..
 
 ---
 
-## Step 6: Create Terratest File
+## Step 7: Create Terratest File
 
 ```bash
 cd integration_test
@@ -113,7 +146,7 @@ https://terratest.gruntwork.io/examples/
 
 ---
 
-## Step 7: Initialize Go Modules & Install Dependencies
+## Step 8: Initialize Go Modules & Install Dependencies
 
 ```bash
 go mod init "<module_name>"
@@ -123,7 +156,7 @@ go get github.com/gruntwork-io/terratest/modules/terraform
 
 ---
 
-## Step 8: Run Terratest
+## Step 9: Run Terratest
 
 ```bash
 go test
