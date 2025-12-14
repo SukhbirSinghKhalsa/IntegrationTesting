@@ -4,7 +4,7 @@
 This repository demonstrates how to set up **Terraform infrastructure testing** using **Go** and **Terratest**.
 
 ## Flow Diagram 
-![Terratest Diagram](https://github.com/SukhbirSinghKhalsa/SukhbirSinghKhalsa/blob/main/Terratest.drawio.svg)
+![Terratest Diagram](https://github.com/SukhbirSinghKhalsa/SukhbirSinghKhalsa/blob/main/Terratest_Snaps/Terratest.drawio.svg)
 
 ---
 
@@ -183,3 +183,11 @@ This setup provides a complete workflow to:
 - Provision infrastructure using Terraform
 - Validate infrastructure using Terratest
 - Automate infrastructure testing using Go
+
+## Screenshots/ Output with go test
+![Terratest Results1](https://github.com/SukhbirSinghKhalsa/SukhbirSinghKhalsa/blob/main/Terratest_Snaps/go_test_1.png)
+![Terratest Results2](https://github.com/SukhbirSinghKhalsa/SukhbirSinghKhalsa/blob/main/Terratest_Snaps/go_test_2.png)
+![Terratest Results3](https://github.com/SukhbirSinghKhalsa/SukhbirSinghKhalsa/blob/main/Terratest_Snaps/go_test_3.png)
+![Terratest Results4](https://github.com/SukhbirSinghKhalsa/SukhbirSinghKhalsa/blob/main/Terratest_Snaps/go_test_4.png)
+
+
