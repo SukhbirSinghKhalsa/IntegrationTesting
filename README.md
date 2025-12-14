@@ -3,6 +3,9 @@
 
 This repository demonstrates how to set up **Terraform infrastructure testing** using **Go** and **Terratest**.
 
+## Flow Diagram 
+![Terratest Diagram](https://github.com/SukhbirSinghKhalsa/SukhbirSinghKhalsa/blob/main/Terratest.drawio.svg)
+
 ---
 
 ## Prerequisites
