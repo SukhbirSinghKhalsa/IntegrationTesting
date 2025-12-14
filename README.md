@@ -69,15 +69,22 @@ cd ..
 ---
 
 ## Step 5: Install Go
-
+- Option 1 - Manually Download go binary file from [Go Download Page](https://go.dev/dl/)
+  - For linux, download go1.25.5.linux-amd64.tar.gz and store in /tmp
+- Option 2 - Download using wget
+```bash 
+wget https://go.dev/dl/go1.25.5.linux-amd64.tar.gz
+```
+- Next remove the exisiting go version
 ```bash
 rm -rf /usr/local/go
+```
+- Extract the file
+```bash
 tar -C /usr/local -xzf go1.25.5.linux-amd64.tar.gz
-
-sudo apt-get install gccgo-5
-sudo update-alternatives --set go /usr/bin/go-5
-
-GOROOT_BOOTSTRAP=/usr ./make.bash
+```
+- Check go is installed properly by checking its version
+```bash
 go version
 ```
 
@@ -128,3 +135,4 @@ go test
 ## Summary
 
 This project provides a clean setup for Terraform integration testing using Go and Terratest.
+
