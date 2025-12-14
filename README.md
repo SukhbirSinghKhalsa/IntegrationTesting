@@ -55,6 +55,7 @@ rm -rf /usr/local/go
 - Extract the file
 ```bash
 tar -C /usr/local -xzf go1.25.5.linux-amd64.tar.gz
+rm -rf go1.25.5.linux-amd64.tar.gz
 ```
 - Check go is installed properly by checking its version
 ```bash
@@ -84,7 +85,7 @@ Architectures: $(dpkg --print-architecture)
 Signed-by: /etc/apt/keyrings/microsoft.gpg" | sudo tee /etc/apt/sources.list.d/azure-cli.sources
 
 sudo apt-get update
-sudo apt-get install azure-cli
+sudo apt-get install azure-cli -y
 
 az version
 ```
