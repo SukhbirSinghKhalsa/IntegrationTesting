@@ -1,4 +1,4 @@
-# reference taken from https://terratest.gruntwork.io/examples/
+// reference taken from https://terratest.gruntwork.io/examples/
 package test
 
 import (
@@ -11,7 +11,7 @@ import (
 func TestTerraformHelloWorldExample(t *testing.T) {
 	// retryable errors in terraform testing.
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
-		TerraformDir: "../examples/terraform-hello-world-example",
+		TerraformDir: "../terraform,
 	})
 
 	defer terraform.Destroy(t, terraformOptions)
