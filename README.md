@@ -61,15 +61,13 @@ rm -rf go1.25.5.linux-amd64.tar.gz
 ```bash
 go version
 ```
-
-
 ---
 ## Step 3: Install Azure CLI
 - Official Download Link from Microsoft [https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Ubuntu based command 
 ```bash
 sudo apt-get update
-sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release
+sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release -y
 
 sudo mkdir -p /etc/apt/keyrings
 curl -sLS https://packages.microsoft.com/keys/microsoft.asc |
@@ -148,17 +146,22 @@ https://terratest.gruntwork.io/examples/
 ---
 
 ## Step 8: Initialize Go Modules & Install Dependencies
-
+**- Important point: file name must be ending with _test.go, for instance we have basic.test.go file inside integration_test folder**
 ```bash
 go mod init "<module_name>"
-go mod tidy
 go get github.com/gruntwork-io/terratest/modules/terraform
+go mod tidy
 ```
 
 ---
 
 ## Step 9: Run Terratest
-
+- These step will run and do the following
+- intiialize the terraform module, backend, providers
+- plan and apply the resources
+- destroy the created resources after installation
+- comapre output with assertion mentioned in the go file
+- **If something goes wrong anywhere you will get the logs and can fix them, ensuring error free deployment in actual environment**
 ```bash
 go test
 ```
